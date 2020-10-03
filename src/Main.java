@@ -1,13 +1,24 @@
+
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String [] args){
      ContactsManager myContactmaneger = new ContactsManager();
-     Contacts myfriendMarcos = new Contacts();
-     myfriendMarcos.Name = "Marcos";
-     myfriendMarcos.phoneNumber = "45636576";
-       myContactmaneger.addContact(myfriendMarcos);
+     Contacts myfriend = new Contacts();
+        Scanner sc = new Scanner(System.in);
+     System.out.println("Enter Name:");
+       String continfo = sc.nextLine();
+     myfriend.Name = continfo;
+     System.out.println("Enter phone number:");
+      continfo = sc.nextLine();
+      myfriend.phoneNumber = continfo;
 
-       Contacts resulted = myContactmaneger.searchContact("Marcos");
+       myContactmaneger.addContact(myfriend);
+
+       Contacts resulted = myContactmaneger.searchContact(myfriend.Name);
+
+     System.out.println(resulted.Name);
      System.out.println(resulted.phoneNumber);
 
     }
